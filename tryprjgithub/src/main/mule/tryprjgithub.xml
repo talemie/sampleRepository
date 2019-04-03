@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="e20d5859-638d-4594-85a6-c510f04f69cb" >
+		<http:listener-connection host="0.0.0.0" port="8085" />
+	</http:listener-config>
+	<flow name="tryprjgithubFlow" doc:id="1f4f17ae-b6ce-4ba3-9150-026ffaaf6a14" >
+		<http:listener doc:name="Listener" doc:id="9230bc8e-ba3e-4278-9189-3148089e137f" config-ref="HTTP_Listener_config" path="/trygithub" allowedMethods="GET"/>
+		<set-payload value='"MESSAGE":"THIS IS PROJECT TO GITHUB"' doc:name="Set Payload" doc:id="c607ab7e-55f8-4485-ae2b-04f35926cb4a" />
+	</flow>
+</mule>
