@@ -1,0 +1,10 @@
+{
+  "sampleData": {
+    "1283d19b-1f29-4a1c-9c8f-22afda64e6b1": {
+      "payload": "sample_data/employee.xml"
+    },
+    "64022b45-b44e-4d64-84bd-4a210b13431c": {
+      "payload": "sample_data/employee_1.xml"
+    }
+  }
+}

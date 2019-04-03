@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="DataweaveOperatorMapObjectFlow" doc:id="2396e6b0-1513-4073-b5b7-91d09235b1b5" >
+		<http:listener doc:name="Listener" doc:id="08cdc07a-aba7-4adf-adb6-0cc24000e70e" config-ref="HTTP_Listener_config" path="/mapObject"/>
+		<ee:transform doc:name="Transform Message" doc:id="934e3627-b21c-428f-a5d7-13cd45129f57" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+var array2 = {
+	employee:
+	{
+		"eno":102,
+		ename:"Aschalew"
+	},
+	adress:
+	{
+		City:"Gondar",
+		country:"Ethiopia"
+			}
+}
+---
+empDetail:array2.adress mapObject ((value, key, index) ->
+	{
+		(index):key ++ " in "++ value
+	}
+)
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

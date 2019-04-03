@@ -1,0 +1,10 @@
+<employee>
+    <emp>
+        <eno>101</eno>
+        <ename>TemesgenAlemie</ename>
+    </emp>
+    <emp>
+        <eno>102</eno>
+        <ename>HaymanotSewagegn</ename>
+    </emp>
+</employee>
