@@ -19,6 +19,6 @@ employeefilter:payload.employee.*emp filter(empVal,empInd)->(empVal.eno == '101'
 ]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<logger level="INFO" doc:name="Logger" doc:id="535f42ee-4ab2-4fd5-980c-30388a4c4ffd" message="i add the logger to know the status of the payload"/>
+		<logger level="INFO" doc:name="Logger" doc:id="535f42ee-4ab2-4fd5-980c-30388a4c4ffd" message="i add the logger to know the status of the payload also "/>
 	</flow>
 </mule>
