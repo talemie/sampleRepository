@@ -23,19 +23,10 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
+				<version>3.2.2</version>
 				<extensions>true</extensions>
 				<configuration>
-		           <cloudHubDeployment>
-		            <uri>https://anypoint.mulesoft.com</uri>
-		            <muleVersion>4.1.5</muleVersion>
-		            <server>my.anypoint.credentials</server>
-		            <applicationName>sampleprj</applicationName>
-		            <environment>Sandbox</environment>
-		            <properties>
-		                <key>value</key>
-		            </properties>
-		        </cloudHubDeployment>
+		           
 				</configuration>
 			</plugin>
 		</plugins>
@@ -55,6 +46,49 @@
             <classifier>mule-plugin</classifier>
         </dependency>
 	</dependencies>
+	
+<profiles>
+  <profile>
+    <id>cloudhub</id>
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <configuration>
+            <skip>true</skip>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.mule.tools.maven</groupId>
+          <artifactId>mule-maven-plugin</artifactId>
+          <version>3.2.2</version>
+          <extensions>true</extensions>
+          <configuration>
+            <cloudHubDeployment>
+               <server>my.anypoint.credentials</server>
+              <businessGroup>abc</businessGroup>
+              <environment>Sandbox</environment>
+              <applicationName>sampleclusflow</applicationName>
+              <muleVersion>4.1.5</muleVersion>
+              <!-- This is the runtime version as it appears on the CloudHub interface -->
+              <workerType>Micro</workerType>
+            </cloudHubDeployment>
+          </configuration>
+          <executions>
+            <execution>
+              <id>deploy</id>
+              <phase>deploy</phase>
+              <goals>
+                <goal>deploy</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
+</profiles>
 
 	<repositories>
           <repository>
