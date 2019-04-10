@@ -70,7 +70,7 @@
               <password>${anypoint.password}</password>
               <businessGroup>abc</businessGroup>
               <environment>Sandbox</environment>
-              <applicationName>sampleclusflow</applicationName>
+              <applicationName>sampleprj</applicationName>
               <muleVersion>4.1.5</muleVersion>
               <!-- This is the runtime version as it appears on the CloudHub interface -->
               <workerType>Micro</workerType>
