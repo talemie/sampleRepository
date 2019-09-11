@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
+	<jms:config name="JMS_Config" doc:name="JMS Config" doc:id="a53b5e64-c2f0-4202-8e55-b4461c2d5ea9" >
+		<jms:active-mq-connection username="admin" password="admin" clientId="kent" >
+			<jms:factory-configuration brokerUrl="tcp://localhost:61616" />
+		</jms:active-mq-connection>
+	</jms:config>
+	<file:config name="File_Config" doc:name="File Config" doc:id="c8e17f7d-9901-402d-9cad-4d896767a3ee" >
+		<file:connection workingDir="C:\fileout\Input" />
+	</file:config>
+	<flow name="activemq_listenerFlow" doc:id="c1c6c7ac-216a-4463-8125-c037e7c43c47" >
+		<jms:listener doc:name="Listener" doc:id="705fcea3-74d7-4c37-8465-2339d7c8488c" config-ref="JMS_Config" destination="SampleTopic1" numberOfConsumers="1">
+			<jms:consumer-type >
+				<jms:topic-consumer subscriptionName="Temu" />
+			</jms:consumer-type>
+		</jms:listener>
+		<logger level="INFO" doc:name="Logger" doc:id="5c4a55c0-4f59-498d-a9be-f5640591cf7d" message="the file read from the topic in acive mq is ====#[payload]"/>
+		<file:write doc:name="Write" doc:id="df5d7fd0-f5b9-4195-addf-ff493d13889a" config-ref="File_Config" path="fromTopic.txt" mode="APPEND"/>
+	</flow>
+</mule>
