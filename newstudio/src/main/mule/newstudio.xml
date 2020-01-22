@@ -10,6 +10,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="newstudioFlow" doc:id="a38c93d9-1ec4-4918-a139-22439015df12" >
 		<http:listener doc:name="Listener" doc:id="04e32a6f-1c9d-4d6c-b064-f9649af41429" config-ref="HTTP_Listener_config" path="/"/>
 		<logger level="INFO" doc:name="Logger" doc:id="390c01f8-5d51-4a67-b241-10d2ffebb690" message="this is trying"/>
-		<set-payload value="This is another trial" doc:name="Set Payload" doc:id="a6387aa6-ea7f-4352-982f-5ad5c2737e04" />
+		<set-payload value="This is another trial for this project" doc:name="Set Payload" doc:id="a6387aa6-ea7f-4352-982f-5ad5c2737e04" />
 	</flow>
 </mule>
