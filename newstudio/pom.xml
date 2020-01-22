@@ -45,6 +45,50 @@
             <classifier>mule-plugin</classifier>
         </dependency>
 	</dependencies>
+	
+	<profiles>
+  <profile>
+    <id>cloudhub</id>
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <configuration>
+            <skip>true</skip>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.mule.tools.maven</groupId>
+          <artifactId>mule-maven-plugin</artifactId>
+          <version>3.2.2</version>
+          <extensions>true</extensions>
+          <configuration>
+            <cloudHubDeployment>
+              <username>${anypoint.user}</username>
+              <password>${anypoint.password}</password>
+              <businessGroup>abc</businessGroup>
+              <environment>Sandbox</environment>
+              <applicationName>autodeployment</applicationName>
+              <muleVersion>4.2.2</muleVersion>
+              <!-- This is the runtime version as it appears on the CloudHub interface -->
+              <workerType>Micro</workerType>
+            </cloudHubDeployment>
+          </configuration>
+          <executions>
+            <execution>
+              <id>deploy</id>
+              <phase>deploy</phase>
+              <goals>
+                <goal>deploy</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
+</profiles>
 
 	<repositories>
           <repository>
