@@ -9,6 +9,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</http:listener-config>
 	<flow name="autodeploymentFlow" doc:id="a1f2ffa4-7960-4fe3-985a-3c511d5fd684" >
 		<http:listener doc:name="Listener" doc:id="454173b9-1270-4257-92f3-4a1759d7a225" config-ref="HTTP_Listener_config" path="/auto"/>
-		<set-payload value='{"Response":"HelloWorld  I AM TEMUMAN"}' doc:name="Set Payload" doc:id="0fc2333e-f3d5-488d-8e9b-919bbff9223b" />
+		<set-payload value='{"Response":"HelloWorld  I AM TEMUMAN from Chicago"}' doc:name="Set Payload" doc:id="0fc2333e-f3d5-488d-8e9b-919bbff9223b" />
 	</flow>
 </mule>
