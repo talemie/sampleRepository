@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="6112f9a8-08c6-44c6-9dbd-a4502614c5c4" >
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+	<flow name="examFlow" doc:id="41d56f69-e1a5-42de-a8ef-97acdf95a87d" >
+		<http:listener doc:name="Listener" doc:id="799ff624-fb28-47a0-b714-957b903814a2" config-ref="HTTP_Listener_config" path="/"/>
+		<set-payload value="#[['Exam is Ready Next Week']]" doc:name="Set Payload" doc:id="a1f2dfb6-6bc0-468f-b794-fa664168e090" />
+	</flow>
+</mule>
