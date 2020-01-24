@@ -9,7 +9,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</http:listener-config>
 	<flow name="examFlow" doc:id="41d56f69-e1a5-42de-a8ef-97acdf95a87d" >
 		<http:listener doc:name="Listener" doc:id="799ff624-fb28-47a0-b714-957b903814a2" config-ref="HTTP_Listener_config" path="/"/>
-		<set-payload value="['Exam is Ready Next okk Week']" doc:name="Set Payload" doc:id="a1f2dfb6-6bc0-468f-b794-fa664168e090" />
+		<set-payload value="['Exam is Ready Next okk Wek']" doc:name="Set Payload" doc:id="a1f2dfb6-6bc0-468f-b794-fa664168e090" />
 		<logger level="INFO" doc:name="Logger" doc:id="ed59606c-0fad-40c5-bb22-1381954dbbab" message="#[payload]"/>
 	</flow>
 </mule>
